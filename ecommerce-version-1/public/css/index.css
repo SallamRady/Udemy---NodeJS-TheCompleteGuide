@@ -1,0 +1,110 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+div.navbar {
+    width: 100%;
+    margin: 0;
+    background-color: silver;
+    box-sizing: border-box;
+    padding: 20px 10px;
+    min-height: 75px;
+}
+
+div.navbar  ul {
+    list-style-type: none;
+    display: flex;
+}
+
+div.navbar  ul li{
+    margin: 0 20px;
+}
+
+div.navbar ul li a{
+    text-decoration: none;
+    color: #030303;
+    font-size: 18px;
+    letter-spacing: 1.3px;
+    text-shadow: 0.5px 0.5px 0.3px grey;
+}
+
+div.navbar ul li a.active{
+    font-weight: 600;
+    color: forestgreen;
+    text-shadow: 1.5px 0.5px 0.5px lightcyan;
+}
+
+div.navbar ul li a:hover{
+    font-weight: 600;
+}
+
+div.AddProduct {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4%;
+}
+
+div.AddProduct form {
+    display: flex;
+    flex-direction: column;
+    margin: 4% 0;
+    width: 290px;
+}
+
+div.AddProduct form input {
+    height: 35px;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+div.AddProduct form input[type="submit"] {
+    background-color: silver;
+    font-size: 17px;
+    padding: 0;
+    cursor: pointer;
+}
+
+.productsContainer {
+    box-sizing: border-box;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.productCard {
+    width: 208px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.productCard h5 {
+    font-size: 20px;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.actions a{
+    background-color: silver;
+    color: #000;
+    text-decoration: none;
+    padding: 3px;
+    border-radius: 4px;
+    margin: 2px;
+}
+
+.actions a:hover{
+    color: green;
+}

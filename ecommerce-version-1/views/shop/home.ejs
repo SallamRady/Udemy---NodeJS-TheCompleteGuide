@@ -1,0 +1,10 @@
+<%- include('../includes/static/head.ejs'); %>
+<%- include('../includes/shop/navbar.ejs'); %>
+
+<h1>Home Page</h1>
+<div class="productsContainer">
+    <% products.forEach(function(pro){ %>
+        <%- include('../includes/shop/product.ejs',{pro:pro}) %> 
+    <% }); %>
+</div>
+<%- include('../includes/static/footer.ejs'); %>
