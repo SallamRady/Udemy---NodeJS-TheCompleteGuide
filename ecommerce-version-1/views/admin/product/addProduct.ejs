@@ -1,0 +1,16 @@
+<%- include('../../includes/static/head.ejs'); %>
+<%- include('../../includes/admin/navbar.ejs'); %>
+
+<div class="AddProduct">
+    <h1>Add Product Page</h1>
+    <form action="/admin/save-product" method="post">
+        <input type="text" name="name" placeholder="Product name ex: OOP Smart Phone"/>
+        <input type="number" name="price" placeholder="Product price ex: 320"/>
+        <textarea name="description">
+            Product description
+        </textarea>
+        <input type="submit" value="Submit Product"/>
+    </form>
+</div>
+
+<%- include('../../includes/static/footer.ejs'); %>
