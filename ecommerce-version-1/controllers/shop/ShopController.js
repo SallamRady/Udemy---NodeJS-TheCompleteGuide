@@ -1,4 +1,5 @@
 const Product = require('../../models/Product');
+const Cart = require('../../models/Cart');
 
 module.exports.homePage = (req,res,next)=>{
     let products = Product.getAll(
@@ -17,7 +18,11 @@ module.exports.aboutPage = (req,res,next)=>{
 }
 
 module.exports.productDetails = (req,res,next)=>{
-    res.send('<h1>Product Details</h1>');
+    const {id} = req.params;
+
+    Product.getSingleProduct(id,
+        product=>res.render('shop/product-details.ejs',{pro:product,pageTitle:'Product Details',path:''})
+    );
 }
 
 module.exports.products = (req,res,next)=>{
@@ -33,5 +38,44 @@ module.exports.orders = (req,res,next)=>{
 }
 
 module.exports.checkout = (req,res,next)=>{
-    res.render('shop/checkout',{pageTitle:'Check Out',path:'cart'});
+    Cart.getAll(
+        cartInfo=>{
+            console.log(cartInfo)
+            res.render('shop/checkout',{products:cartInfo.cartProducts,totalAmount:cartInfo.totalAmount,totalPrice:cartInfo.totalPrice,pageTitle:'Check Out',path:'cart'});
+        }
+    )
+    
+}
+
+module.exports.AddToCart = (req,res,next)=>{
+    const {id} = req.body;
+    const {price} = req.body;
+    
+    Product.getSingleProduct(id,
+        product=>{
+            Cart.addProduct(id,price);
+        }
+    );
+    res.redirect('/');
+    
+}
+
+module.exports.InctraseCartItem = (req,res,next)=>{
+    const {id} = req.body;
+    const {price} = req.body;
+    
+    Product.getSingleProduct(id,
+        product=>{
+            Cart.addProduct(id,price);
+        }
+    );
+    res.redirect('/cart');
+}
+
+module.exports.deleteFromCart = (req,res,next)=>{
+    const {id} = req.body;
+    const {price} = req.body;
+    Cart.deleteProduct(id,price);
+    res.redirect('/cart');
+    
 }

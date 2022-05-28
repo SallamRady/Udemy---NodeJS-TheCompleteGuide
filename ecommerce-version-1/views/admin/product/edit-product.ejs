@@ -1,6 +1,14 @@
 <%- include('../../includes/static/head.ejs'); %>
 <%- include('../../includes/admin/navbar.ejs'); %>
 
-<h1>Edit Product Page</h1>
-
+<div class="AddProduct">
+    <h1>Edit Product Page</h1>
+    <form action="/admin/save-edit-product" method="post">
+        <input type="hidden" name="id" value="<%= pro.id %>"/>
+        <input type="text" value="<%= pro.name %>" name="name" placeholder="Product name ex: OOP Smart Phone"/>
+        <input type="number" value="<%= pro.price %>" name="price" placeholder="Product price ex: 320"/>
+        <textarea name="description"><%= pro.description %> </textarea>
+        <input type="submit" value="Edit Product"/>
+    </form>
+</div>
 <%- include('../../includes/static/footer.ejs'); %>

@@ -12,6 +12,12 @@ router.get('/orders',shopController.orders);
 
 router.get('/cart',shopController.checkout);
 
+router.post('/cart',shopController.AddToCart);
+
+router.post('/increaseItem',shopController.InctraseCartItem);
+
+router.post('/deleteFromCart',shopController.deleteFromCart);
+
 router.get('/product/:id',shopController.productDetails);
 
 module.exports = router;

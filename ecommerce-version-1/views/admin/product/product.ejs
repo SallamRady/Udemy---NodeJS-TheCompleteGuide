@@ -4,11 +4,19 @@
     <p><strong> <%= pro.price %> $</strong></p>
     <p><%= pro.description %> </p>
     <div class="actions">
-        <a href="#">Product Details</a>
-        <a href="#">Add TO Cart</a>
+        <a href="/admin/product/<%= pro.id %>">Product Details</a>
+        <form action="/admin/cart" method="post">
+            <input type="hidden" name="id" value="<%= pro.id %> "/>
+            <input type="hidden" name="price" value="<%= pro.price %> "/>
+            <button type="submit" class="cart">Add TO Cart</button>
+        </form>
     </div>
     <div class="actions">
-        <a href="#">Edit Product</a>
-        <a href="#">Delete Product</a>
+        <a href="/admin/product-edit/<%= pro.id %>">Edit Product</a>
+        <form action="/admin/product-delete" method="post">
+            <input type="hidden" name="id" value="<%= pro.id %>"/>
+            <input type="hidden" name="price" value="<%= pro.price %> "/>
+            <button type="submit" class="cart">Delete Product</button>
+        </form>
     </div>
 </div>

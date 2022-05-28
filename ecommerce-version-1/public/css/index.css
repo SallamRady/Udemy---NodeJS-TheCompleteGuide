@@ -105,6 +105,43 @@ div.AddProduct form input[type="submit"] {
     margin: 2px;
 }
 
-.actions a:hover{
+.actions a:hover,button.cart:hover{
     color: green;
+}
+
+.productDetailsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+}
+
+button.cart {
+    background-color: silver;
+    padding: 2px;
+    border: navajowhite;
+    border-radius: 4px;
+    font-size: 13px;
+    padding: 4.5px;
+    margin-top: 2px;
+    cursor: pointer;
+}
+
+table.cartTable{
+    width: 350px;
+    border-collapse: collapse;
+    margin: 6px;
+}
+
+th,td{
+    padding: 7px;
+}
+
+td button{
+    padding: 3px;
+    font-size: 12px;
+    background-color: silver;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
 }
