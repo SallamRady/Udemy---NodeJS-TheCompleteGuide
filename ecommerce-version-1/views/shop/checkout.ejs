@@ -1,6 +1,34 @@
 <%- include('../includes/static/head.ejs'); %>
 <%- include('../includes/shop/navbar.ejs'); %>
 
-<h1>Check out</h1>
-
+<h1>Check out Page</h1>
+<h2>Cart Containt : <%= totalAmount%> ------ Total : <%= totalPrice %> $</h2>
+<br/>
+<hr/>
+<br/>
+<table border="1" class="cartTable">
+    <tr>
+        <th>name</th>
+        <th>Amount</th>
+        <th>Actions</th>
+    </tr>
+    <% for( index in products) { %>
+        <tr>
+            <td><%= products[index].name %></td>
+            <td><%= products[index].Amount %></td>
+            <td>
+                <form action="/increaseItem" method="post">
+                    <input type="hidden" name="id" value="<%=products[index].id%>"/>
+                    <input type="hidden" name="price" value="<%= products[index].price %>"/>
+                    <button>+</button> 
+                </form>
+                <form action="/deleteFromCart" method="post">
+                    <input type="hidden" name="id" value="<%=products[index].id%>"/>
+                    <input type="hidden" name="price" value="<%= products[index].price %>"/>
+                    <button style="color: red;">X</button> 
+                </form>
+            </td>
+        </tr>
+    <% } %>
+</table>
 <%- include('../includes/static/footer.ejs'); %>
